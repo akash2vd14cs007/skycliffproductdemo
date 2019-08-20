@@ -14,6 +14,8 @@ import { SignupReactiveDemoComponent } from './userdisplay/signup-reactive-demo/
 import { EdituserreactiveComponent } from './userdisplay/edituserreactive/edituserreactive.component';
 import {LoginComponent} from './login/login.component';
 import { UserGuardService } from './userguard.service';
+import { DemoComponent } from './demo/demo.component';
+import { Demo1Component } from './demo1/demo1.component';
 
 const arr: Routes = [
   {path:'',component:ProductdisplayComponent},
@@ -29,6 +31,8 @@ const arr: Routes = [
   {path:'customer', component:CustomerComponent},
   {path:'signup2', component:SignupReactiveDemoComponent},
   {path:'editreactive/:user_email',component:EdituserreactiveComponent},
+  {path:'demo',component:DemoComponent},
+  {path:'demo1/:id',component:Demo1Component},
   {path:'login',component:LoginComponent},
   {path:'**',redirectTo:'/pagenotfound'},
 
