@@ -15,4 +15,8 @@ export class DemoComponent implements OnInit {
   onClick(){
     this._router.navigate(['/demo1',10]);
 }
+onClickQueryParams(){
+    this._router.navigate(['/demo2'],{queryParams:{id:'10'}});
+  }
+
 }
