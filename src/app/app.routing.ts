@@ -1,10 +1,11 @@
-import { Routes,RouterModule } from "@angular/router";
+import { Routes,RouterModule, PreloadAllModules } from "@angular/router";
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AddtaskComponent } from './taskdisplay/addtask/addtask.component';
 import { TaskdisplayComponent } from './taskdisplay/taskdisplay.component';
 import { EdittaskComponent } from './taskdisplay/edittask/edittask.component';
+import { UserGuardService } from './userguard.service';
 
 const arr : Routes=[
   {path:'',component:HomeComponent},
@@ -14,9 +15,9 @@ const arr : Routes=[
   {path:'edittask/:Id',component:EdittaskComponent},
   {path:'customer',loadChildren:'./customer/customer.module#CustomerModule'},
   {path:'user1',loadChildren:'./users/users.module#UsersModule'},
-  {path:'product',loadChildren:'./productdisplay/product.module#ProductModule'},
+  {path:'product',canLoad:[UserGuardService],loadChildren:'./productdisplay/product.module#ProductModule'},
   {path:'pagenotfound',component:PagenotfoundComponent},
   {path:'**',redirectTo:'/pagenotfound'}
 ];
 
-export const routing=RouterModule.forRoot(arr);
+export const routing=RouterModule.forRoot(arr,{preloadingStrategy:PreloadAllModules});
