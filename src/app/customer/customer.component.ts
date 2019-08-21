@@ -47,7 +47,12 @@ export class CustomerComponent implements OnInit {
       }
     );
   }
-
+  getControls() {
+    return (<FormArray>this.customer.get('hobby')).controls;
+ }
+//  get controls(){
+//    return (this.customer.get('hobby') as FormArray).controls;
+//  }
 
   //custom errors
   checkFirstName(x:AbstractControl):{[y:string]:boolean}{
