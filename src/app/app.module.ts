@@ -25,6 +25,8 @@ import { DemoComponent } from './demo/demo.component';
 import { Demo1Component } from './demo1/demo1.component';
 import { Demo2Component } from './demo2/demo2.component';
 import { Interceptordemo } from './interceptordemo';
+import { Product1Component } from './product1/product1.component';
+
 
 @NgModule({
   declarations: [
@@ -48,7 +50,8 @@ import { Interceptordemo } from './interceptordemo';
     LoginComponent,
     DemoComponent,
     Demo1Component,
-    Demo2Component
+    Demo2Component,
+    Product1Component
   ],
   imports: [
     BrowserModule,

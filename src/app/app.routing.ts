@@ -17,9 +17,12 @@ import { UserGuardService } from './userguard.service';
 import { DemoComponent } from './demo/demo.component';
 import { Demo1Component } from './demo1/demo1.component';
 import { Demo2Component } from './demo2/demo2.component';
+import { ProductResolverService } from './product-resolver.service';
+import { Product1Component } from './product1/product1.component';
 
 const arr: Routes = [
   {path:'',component:ProductdisplayComponent},
+  {path:'product1',resolve:{pdata:ProductResolverService},component:Product1Component},
   {path:'addproduct',canActivate:[UserGuardService],component:ProductaddComponent},
   {path:'editproduct/:pro_id',component:EditproductComponent},
   {path:'users',component:UserdisplayComponent},
