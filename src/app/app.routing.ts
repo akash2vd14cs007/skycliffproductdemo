@@ -1,46 +1,22 @@
-import { Routes, RouterModule } from '@angular/router';
-import { ProductdisplayComponent } from './productdisplay/productdisplay.component';
+import { Routes,RouterModule } from "@angular/router";
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
-import { ProductaddComponent } from './productdisplay/productadd/productadd.component';
-import { UserdisplayComponent } from './userdisplay/userdisplay.component';
-import { SignupComponent } from './userdisplay/signup/signup.component';
-import { EdituserComponent } from './userdisplay/edituser/edituser.component';
-import { EditproductComponent } from './productdisplay/editproduct/editproduct.component';
-import { EdittaskComponent } from './taskdisplay/edittask/edittask.component';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
 import { AddtaskComponent } from './taskdisplay/addtask/addtask.component';
 import { TaskdisplayComponent } from './taskdisplay/taskdisplay.component';
-import { CustomerComponent } from './customer/customer.component';
-import { SignupReactiveDemoComponent } from './userdisplay/signup-reactive-demo/signup-reactive-demo.component';
-import { EdituserreactiveComponent } from './userdisplay/edituserreactive/edituserreactive.component';
-import {LoginComponent} from './login/login.component';
-import { UserGuardService } from './userguard.service';
-import { DemoComponent } from './demo/demo.component';
-import { Demo1Component } from './demo1/demo1.component';
-import { Demo2Component } from './demo2/demo2.component';
-import { ProductResolverService } from './product-resolver.service';
-import { Product1Component } from './product1/product1.component';
+import { EdittaskComponent } from './taskdisplay/edittask/edittask.component';
 
-const arr: Routes = [
-  {path:'',component:ProductdisplayComponent},
-  {path:'product1',resolve:{pdata:ProductResolverService},component:Product1Component},
-  {path:'addproduct',canActivate:[UserGuardService],component:ProductaddComponent},
-  {path:'editproduct/:pro_id',component:EditproductComponent},
-  {path:'users',component:UserdisplayComponent},
-  {path:'signup',component:SignupComponent},
-  {path:'edituser/:user_email',component:EdituserComponent},
-   {path:'addtask',component:AddtaskComponent},
+const arr : Routes=[
+  {path:'',component:HomeComponent},
+  {path:'login',component:LoginComponent},
+  {path:'addtask',component:AddtaskComponent},
    {path:'task',component:TaskdisplayComponent},
   {path:'edittask/:Id',component:EdittaskComponent},
+  {path:'customer',loadChildren:'./customer/customer.module#CustomerModule'},
+  {path:'user1',loadChildren:'./users/users.module#UsersModule'},
+  {path:'product',loadChildren:'./productdisplay/product.module#ProductModule'},
   {path:'pagenotfound',component:PagenotfoundComponent},
-  {path:'customer', component:CustomerComponent},
-  {path:'signup2', component:SignupReactiveDemoComponent},
-  {path:'editreactive/:user_email',component:EdituserreactiveComponent},
-  {path:'demo',component:DemoComponent},
-  {path:'demo1/:id',component:Demo1Component},
-  {path:'demo2',component:Demo2Component},
-  {path:'login',component:LoginComponent},
-  {path:'**',redirectTo:'/pagenotfound'},
-
+  {path:'**',redirectTo:'/pagenotfound'}
 ];
 
-export const routing = RouterModule.forRoot(arr);
+export const routing=RouterModule.forRoot(arr);
