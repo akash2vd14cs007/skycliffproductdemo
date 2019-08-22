@@ -20,6 +20,7 @@ import { TaskdisplayComponent } from './taskdisplay/taskdisplay.component';
 import { AddtaskComponent } from './taskdisplay/addtask/addtask.component';
 import { EdittaskComponent } from './taskdisplay/edittask/edittask.component';
 import { AppCustomerPreloader } from './app.customerpreloader';
+import { Sidebar2Component } from './sidebar2/sidebar2.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,8 @@ import { AppCustomerPreloader } from './app.customerpreloader';
     HomeComponent,
     TaskdisplayComponent,
     AddtaskComponent,
-    EdittaskComponent
+    EdittaskComponent,
+    Sidebar2Component
   ],
   imports: [
     BrowserModule,
