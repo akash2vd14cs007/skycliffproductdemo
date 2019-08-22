@@ -6,6 +6,7 @@ import { AddtaskComponent } from './taskdisplay/addtask/addtask.component';
 import { TaskdisplayComponent } from './taskdisplay/taskdisplay.component';
 import { EdittaskComponent } from './taskdisplay/edittask/edittask.component';
 import { UserGuardService } from './userguard.service';
+import { AppCustomerPreloader } from './app.customerpreloader';
 
 const arr : Routes=[
   {path:'',component:HomeComponent},
@@ -13,11 +14,11 @@ const arr : Routes=[
   {path:'addtask',component:AddtaskComponent},
    {path:'task',component:TaskdisplayComponent},
   {path:'edittask/:Id',component:EdittaskComponent},
-  {path:'customer',loadChildren:'./customer/customer.module#CustomerModule'},
+  {path:'customer',data:{preload:true},loadChildren:'./customer/customer.module#CustomerModule'},
   {path:'user1',loadChildren:'./users/users.module#UsersModule'},
   {path:'product',canLoad:[UserGuardService],loadChildren:'./productdisplay/product.module#ProductModule'},
   {path:'pagenotfound',component:PagenotfoundComponent},
   {path:'**',redirectTo:'/pagenotfound'}
 ];
 
-export const routing=RouterModule.forRoot(arr,{preloadingStrategy:PreloadAllModules});
+export const routing=RouterModule.forRoot(arr,{preloadingStrategy:AppCustomerPreloader});

@@ -19,7 +19,7 @@ import { Product1Module } from './product1/product1.module';
 import { TaskdisplayComponent } from './taskdisplay/taskdisplay.component';
 import { AddtaskComponent } from './taskdisplay/addtask/addtask.component';
 import { EdittaskComponent } from './taskdisplay/edittask/edittask.component';
-
+import { AppCustomerPreloader } from './app.customerpreloader';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +42,8 @@ import { EdittaskComponent } from './taskdisplay/edittask/edittask.component';
     FormsModule
   ],
   providers: [
-    {provide:HTTP_INTERCEPTORS,useClass:Interceptordemo,multi:true}
+    {provide:HTTP_INTERCEPTORS,useClass:Interceptordemo,multi:true},
+    AppCustomerPreloader
   ],
   bootstrap: [AppComponent]
 })
